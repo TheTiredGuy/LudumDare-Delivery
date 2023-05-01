@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
@@ -107,6 +108,11 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.y, _jumpPower));
         }
         
+    }
+
+    public void OnQuit(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("Title");
     }
 
 }
